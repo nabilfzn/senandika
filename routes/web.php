@@ -75,7 +75,7 @@ Route::resource('admin/posts', PostController::class)->names('admin.posts');
 Route::post('posts/{post}/ask', [AIController::class, 'askQuestion']);
 
 // Route untuk menampilkan tampilan chatbot
-Route::get('/chat', [ChatbotController::class, 'index'])->name('chat.index');
+Route::get('/chat', [ChatbotController::class, 'index'])->middleware('auth')->name('chat');
 
 // Route untuk mengirim pesan ke chatbot
 Route::post('/chat', [ChatbotController::class, 'sendMessage'])->name('chat.send');
