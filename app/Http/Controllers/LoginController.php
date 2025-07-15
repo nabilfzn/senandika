@@ -18,7 +18,7 @@ class LoginController extends Controller
                 if ($user->role === 'admin') {
                     return redirect('/admin'); 
                 } else {
-                    return redirect('/dashboard'); 
+                    return redirect('/'); 
                 }
             } else {
                 return view('login');
@@ -46,7 +46,7 @@ public function actionLogin(Request $request)
         if (Auth::user()->role === 'admin') {
             return redirect('/admin');
         }
-        return redirect('/login');
+        return redirect('/');
     }
     
     // email ada tapi passwod salah

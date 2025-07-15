@@ -31,7 +31,7 @@
           <p class="card-desc">Untuk Blog, Tes Psikologi, Karir, Kerja Sama</p>
         </a>
 
-        <a href="{{ route('dashboard') }}" class="option-card">
+        <a href="{{ route('chat') }}" class="option-card">
           <img src="logo-konsultasi.png" alt="Konsultasi" class="icon" />
           <h3 class="card-title">KONSULTASI</h3>
           <p class="card-desc">Untuk Life Coaching dan Konseling</p>
