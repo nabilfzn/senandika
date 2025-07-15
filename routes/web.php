@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UtamaController;
 use App\Http\Controllers\PostController as FrontPostController;
 use App\Http\Controllers\UserController as FrontUserController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\ChatbotController;
 
 //LOGIN 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
@@ -73,6 +73,12 @@ Route::resource('admin/posts', PostController::class)->names('admin.posts');
 // GEMINI
 // Route::post('/articles/{post}/ask', [AIController::class, 'askQuestion']);
 Route::post('posts/{post}/ask', [AIController::class, 'askQuestion']);
+
+// Route untuk menampilkan tampilan chatbot
+Route::get('/chat', [ChatbotController::class, 'index'])->name('chat.index');
+
+// Route untuk mengirim pesan ke chatbot
+Route::post('/chat', [ChatbotController::class, 'sendMessage'])->name('chat.send');
 
 
 
