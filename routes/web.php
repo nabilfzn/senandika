@@ -10,14 +10,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UtamaController;
 use App\Http\Controllers\PostController as FrontPostController;
 use App\Http\Controllers\UserController as FrontUserController;
 use App\Http\Controllers\ChatbotController;
 
-
-
-//LOGIN
+//LOGIN 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin')->middleware('guest');
 
@@ -30,8 +28,11 @@ Route::post('/actionregister', [RegisterController::class, 'actionregister'])->n
 Route::get('/logout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 //HOME
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', function () {
+    $posts = Post::latest()->take(5)->get(); // ambil 5 post terbaru (bisa diubah)
+    return view('dashboard', compact('posts'));
+})->middleware('auth')->name('dashboard');
 //ARTICLE
 Route::get('/posts', [FrontPostController::class, 'index'])->middleware('auth');
 Route::get('/posts/create', [FrontPostController::class, 'create'])->middleware('auth');
