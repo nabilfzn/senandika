@@ -9,12 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        return view('posts', [
-            'posts' => Post::all()
-        ]);
+    public function index(Request $request)
+{
+    $query = Post::query()->with('user');
+
+    if ($request->has('search') && $request->search != '') {
+        $search = $request->search;
+        $query->where(function ($q) use ($search) {
+            $q->where('judul', 'like', '%' . $search . '%');
+        });
     }
+
+    $posts = $query->latest()->paginate(9)->withQueryString(); // paginasi tetap support query
+    return view('posts', compact('posts'));
+}
 
     public function show(Post $post) 
     {

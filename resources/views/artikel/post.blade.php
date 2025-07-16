@@ -1,7 +1,7 @@
 <x-layout>
 <x-slot:title>{{ $post->judul }} | Tulisin</x-slot:title>
 
-<div class="bg-gray-50 font-sans antialiased">
+<div class="bg-gray-50 mt-5 font-sans antialiased">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">

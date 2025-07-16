@@ -1,4 +1,4 @@
-<header class="fixed top-0 w-full bg-white shadow-sm border-b border-gray-200 z-50" x-data="{ isOpen: false }" @keydown.escape.window="isOpen = false">
+<header class="fixed top-0 w-full bg-white shadow-sm border-b border-gray-200 z-50 mb-5" x-data="{ isOpen: false }" @keydown.escape.window="isOpen = false">
     <div class="container mx-auto px-5 py-4 flex justify-between items-center">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
@@ -26,7 +26,7 @@
             </x-nav-link>
             <x-nav-link href="/chat" :active="request()->is('chat')"
                 class="text-gray-900 font-medium px-4 py-2 rounded-md transition-all duration-200 ease-in-out hover:text-blue-700 hover:bg-blue-100">
-                About
+                Chat
             </x-nav-link>
         </nav>
 
