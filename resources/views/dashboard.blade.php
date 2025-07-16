@@ -1381,7 +1381,9 @@
                             <li>Perubahan nafsu makan</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.depresi') }}">
+                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
                 
                 <div class="disorder-card anxiety">
@@ -1400,7 +1402,9 @@
                             <li>Sulit berkonsentrasi</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.anxiety') }}">
+                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
                 
                 <div class="disorder-card bipolar">
@@ -1419,7 +1423,9 @@
                             <li>Gangguan tidur</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.bipolar') }}">
+                           <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
                 
                 <div class="disorder-card ptsd">
@@ -1438,7 +1444,9 @@
                             <li>Hypervigilance</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.ptsd') }}">
+                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
                 
                 <div class="disorder-card ocd">
@@ -1457,7 +1465,9 @@
                             <li>Gangguan fungsi sehari-hari</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.ocd') }}">
+                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
                 
                 <div class="disorder-card eating">
@@ -1476,7 +1486,9 @@
                             <li>Isolasi sosial</li>
                         </ul>
                     </div>
-                    <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    <a href="{{ route('jenis.gangguan') }}">
+                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
+                    </a>
                 </div>
             </div>
             

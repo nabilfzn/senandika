@@ -80,8 +80,27 @@ Route::get('/chat', [ChatbotController::class, 'index'])->middleware('auth')->na
 // Route untuk mengirim pesan ke chatbot
 Route::post('/chat', [ChatbotController::class, 'sendMessage'])->name('chat.send');
 
+// route ke jenis-jenis
+Route::get('/jenis/anxiety', function () {
+    return view('jenis.anxiety');
+})->name('jenis.anxiety');
 
+Route::get('/jenis/depresi', function () {
+    return view('jenis.depresi');
+})->name('jenis.depresi');
 
-Route::get('/artikel', function () {
-    return view('artikel'); // 'artikel' mengacu pada resources/views/artikel.blade.php
-});
+Route::get('/jenis/bipolar', function () {
+    return view('jenis.bipolar');
+})->name('jenis.bipolar');
+
+Route::get('/jenis/ptsd', function () {
+    return view('jenis.ptsd');
+})->name('jenis.ptsd');
+
+Route::get('/jenis/ocd', function () {
+    return view('jenis.ocd');
+})->name('jenis.ocd');
+
+Route::get('/jenis/gangguan', function () {
+    return view('jenis.gangguan');
+})->name('jenis.gangguan');
