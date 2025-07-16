@@ -82,3 +82,6 @@ Route::post('/chat', [ChatbotController::class, 'sendMessage'])->name('chat.send
 
 
 
+Route::get('/artikel', function () {
+    return view('artikel'); // 'artikel' mengacu pada resources/views/artikel.blade.php
+});

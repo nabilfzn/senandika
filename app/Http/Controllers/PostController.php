@@ -24,6 +24,13 @@ class PostController extends Controller
         ]);
     }
 
+    public function show1(Post $post) 
+    {
+    
+        return view('artikel', [ 
+        ]);
+    }
+
     public function postId() 
     {
         $loggedInUser = Auth::user();
