@@ -9,7 +9,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @stack('head')
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -22,10 +22,8 @@
             --white: #ffffff;
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
             --gradient-bg: linear-gradient(135deg, rgba(145, 200, 228, 0.1), rgba(70, 130, 169, 0.1));
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 35px rgba(0, 0, 0, 0.12);
         }
 
         body {
@@ -49,7 +47,7 @@
             background: white;
             border-bottom: 1px solid #e5e7eb;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .nav-wrapper {
@@ -61,12 +59,14 @@
         .profile-button {
             margin-left: 1rem;
         }
-
-        .profile-btn {
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 0;
+        
+        .profile-link {
+            display: block;
+            border-radius: 50%;
+            transition: box-shadow 0.2s ease;
+        }
+        .profile-link:hover {
+            box-shadow: 0 0 0 3px rgba(70, 130, 169, 0.2);
         }
 
         .profile-img {
@@ -74,13 +74,8 @@
             height: 36px;
             border-radius: 50%;
             object-fit: cover;
-            transition: transform 0.2s ease;
+            display: block;
         }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-
 
         .logo {
             display: flex;
@@ -222,7 +217,7 @@
 
         .hero-badge:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(70, 130, 169, 0.2);
+            box-shadow: 0 6px 25px rgba(70, 130, 169, 0.15);
         }
 
         .hero-title {
@@ -259,7 +254,7 @@
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
             text-align: center;
             position: relative;
@@ -283,23 +278,23 @@
         .btn:hover::before { left: 0; }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .btn-primary {
             background: var(--gradient-primary);
             color: white;
-            box-shadow: 0 8px 30px rgba(70, 130, 169, 0.4);
+            box-shadow: 0 8px 30px rgba(70, 130, 169, 0.3);
             border: none;
         }
 
-        .btn-primary::before {
+        /* .btn-primary::before {
             background: linear-gradient(135deg, var(--secondary), var(--accent));
-        }
+        } */
 
-        .btn-primary:hover {
-            box-shadow: 0 15px 40px rgba(70, 130, 169, 0.5);
-        }
+        /* .btn-primary:hover {
+            box-shadow: 0 12px 35px rgba(70, 130, 169, 0.4);
+        } */
 
         .btn-outline {
             border: 2px solid var(--primary);
@@ -315,7 +310,7 @@
         .btn-outline:hover {
             color: white;
             border-color: transparent;
-            box-shadow: 0 15px 40px rgba(70, 130, 169, 0.3);
+            box-shadow: 0 12px 35px rgba(70, 130, 169, 0.25);
         }
 
         .hero-stats {
@@ -331,13 +326,13 @@
             padding: 1.5rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .stat:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
         }
 
         .stat-number {
@@ -378,7 +373,7 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         .section-header {
@@ -433,7 +428,7 @@
         }
 
         .about-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
         }
 
@@ -489,7 +484,7 @@
         .aspect-card:hover::before { left: 0; }
 
         .aspect-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
 
@@ -522,7 +517,7 @@
             padding: 2.5rem;
             border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -541,7 +536,7 @@
         .sign-card:hover::before { opacity: 1; }
 
         .sign-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
             border-color: rgba(70, 130, 169, 0.3);
         }
@@ -555,21 +550,21 @@
             justify-content: center;
             font-size: 2.5rem;
             margin: 0 auto 1.5rem;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .sign-card:hover .sign-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .sign-icon.heart { background: linear-gradient(135deg, #ec4899, #f43f5e); }
-        .sign-icon.brain { background: linear-gradient(135deg, #3b82f6, #6366f1); }
-        .sign-icon.social { background: linear-gradient(135deg, #10b981, #059669); }
-        .sign-icon.resilience { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-        .sign-icon.productivity { background: linear-gradient(135deg, #f59e0b, #ea580c); }
-        .sign-icon.acceptance { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .sign-icon.heart { background: linear-gradient(135deg, #ec4899, #f43f5e); color: white; }
+        .sign-icon.brain { background: linear-gradient(135deg, #3b82f6, #6366f1); color: white; }
+        .sign-icon.social { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+        .sign-icon.resilience { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+        .sign-icon.productivity { background: linear-gradient(135deg, #f59e0b, #ea580c); color: white; }
+        .sign-icon.acceptance { background: linear-gradient(135deg, #06b6d4, #0891b2); color: white; }
 
         .sign-card h3 {
             font-size: 1.4rem;
@@ -584,188 +579,92 @@
             font-size: 1.05rem;
         }
 
+
+        /* CSS BARU UNTUK BAGIAN GANGGUAN MENTAL */
         .disorders {
             padding: 5rem 0;
-            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            background: var(--bg-light);
         }
 
-        .disorders-grid {
+        .disorders-grid-new {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-bottom: 4rem;
         }
 
-        .disorder-card {
-            padding: 2.5rem;
-            border-radius: 25px;
+        .disorder-card-new {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--white);
+            border-radius: 20px;
             box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e5e7eb;
         }
 
-        .disorder-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 6rem;
-            height: 6rem;
-            opacity: 0.1;
-            border-radius: 0 25px 0 100%;
+        .disorder-card-new:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        .disorder-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         }
 
-        .disorder-card.depression { background: linear-gradient(135deg, #dbeafe 0%, rgba(219, 234, 254, 0.8) 100%); }
-        .disorder-card.depression::before { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-        .disorder-card.anxiety { background: linear-gradient(135deg, #fef3c7 0%, rgba(254, 243, 199, 0.8) 100%); }
-        .disorder-card.anxiety::before { background: linear-gradient(135deg, #f59e0b, #ea580c); }
-        .disorder-card.bipolar { background: linear-gradient(135deg, #f3e8ff 0%, rgba(243, 232, 255, 0.8) 100%); }
-        .disorder-card.bipolar::before { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
-        .disorder-card.ptsd { background: linear-gradient(135deg, #fee2e2 0%, rgba(254, 226, 226, 0.8) 100%); }
-        .disorder-card.ptsd::before { background: linear-gradient(135deg, #ef4444, #dc2626); }
-        .disorder-card.ocd { background: linear-gradient(135deg, #d1fae5 0%, rgba(209, 250, 229, 0.8) 100%); }
-        .disorder-card.ocd::before { background: linear-gradient(135deg, #10b981, #047857); }
-        .disorder-card.eating { background: linear-gradient(135deg, #e0e7ff 0%, rgba(224, 231, 255, 0.8) 100%); }
-        .disorder-card.eating::before { background: linear-gradient(135deg, #6366f1, #3b82f6); }
-
-        .disorder-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
+        .disorder-card-new:hover .disorder-icon-wrapper {
+            transform: scale(1.1);
         }
 
-        .disorder-card:hover::before {
-            opacity: 0.2;
-            width: 8rem;
-            height: 8rem;
+        .disorder-icon-new {
+            font-size: 2.5rem;
         }
 
-        .disorder-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .disorder-icon {
-            font-size: 3.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .disorder-card:hover .disorder-icon {
-            transform: scale(1.1) rotate(-5deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .disorder-prevalence {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.8rem;
+        .disorder-card-new h3 {
+            font-size: 1.5rem;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(70, 130, 169, 0.3);
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
         }
 
-        .disorder-card h3 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: var(--text-dark);
+        .disorder-card-new p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            flex-grow: 1; /* Makes p take up available space */
             margin-bottom: 1.5rem;
         }
 
-        .disorder-card > p {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-            font-size: 1.05rem;
+        .disorder-link {
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.2s ease;
+            margin-top: auto; /* Pushes the link to the bottom */
         }
-
-        .symptoms h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
+        
+        .disorder-card-new:hover .disorder-link {
             color: var(--text-dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            text-decoration: underline;
         }
 
-        .symptoms ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .symptoms li {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.5rem 0;
-        }
-
-        .symptoms li::before {
-            content: '';
-            width: 0.6rem;
-            height: 0.6rem;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            box-shadow: 0 2px 4px rgba(145, 200, 228, 0.4);
-        }
-
-        .disorder-btn {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: white;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .disorder-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.4s ease;
-            z-index: 1;
-        }
-
-        .disorder-btn:hover::before { left: 0; }
-
-        .depression .disorder-btn { background: linear-gradient(135deg, #3b82f6, #1d4ed8); box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
-        .anxiety .disorder-btn { background: linear-gradient(135deg, #f59e0b, #ea580c); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
-        .bipolar .disorder-btn { background: linear-gradient(135deg, #8b5cf6, #ec4899); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); }
-        .ptsd .disorder-btn { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4); }
-        .ocd .disorder-btn { background: linear-gradient(135deg, #10b981, #047857); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
-        .eating .disorder-btn { background: linear-gradient(135deg, #6366f1, #3b82f6); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
-
-        .disorder-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+        /* Color schemes for new cards */
+        .disorder-card-new.depression .disorder-icon-wrapper { background-color: #dbeafe; }
+        .disorder-card-new.anxiety .disorder-icon-wrapper { background-color: #fef3c7; }
+        .disorder-card-new.bipolar .disorder-icon-wrapper { background-color: #f3e8ff; }
+        .disorder-card-new.ptsd .disorder-icon-wrapper { background-color: #fee2e2; }
+        .disorder-card-new.ocd .disorder-icon-wrapper { background-color: #d1fae5; }
+        .disorder-card-new.eating .disorder-icon-wrapper { background-color: #e0e7ff; }
 
         .statistics {
             background: rgba(255, 255, 255, 0.9);
@@ -809,7 +708,7 @@
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow);
         }
 
@@ -879,7 +778,7 @@
             padding: 2.5rem;
             border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -898,7 +797,7 @@
         .resource-card:hover::before { opacity: 1; }
 
         .resource-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
             border-color: rgba(70, 130, 169, 0.3);
         }
@@ -913,13 +812,13 @@
             font-size: 2.5rem;
             margin: 0 auto 1.5rem;
             color: white;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .resource-card:hover .resource-icon {
-            transform: scale(1.1) rotate(-5deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
         .resource-icon.articles { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
@@ -959,92 +858,116 @@
             background: var(--primary);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(70, 130, 169, 0.4);
+            box-shadow: 0 8px 25px rgba(70, 130, 169, 0.3);
         }
 
         .contact {
             padding: 5rem 0;
+            background: var(--gradient-bg);
         }
 
-        .contact-content {
+        .contact-card-new {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 2fr; /* Layout asimetris */
+            background: var(--white);
+            border-radius: 25px;
+            box-shadow: var(--shadow-hover);
+            overflow: hidden; /* Penting untuk menjaga border-radius */
+            border: 1px solid #e5e7eb;
         }
 
-        .contact-info h3 {
+        .contact-info-new {
+            padding: 3rem;
+            background: rgba(249, 250, 251, 0.5); /* Latar sedikit berbeda */
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-info-new h3 {
             font-size: 1.8rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-items {
+        .contact-info-new p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-items-new {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            margin-top: auto; /* Mendorong item ke bawah jika ada ruang */
         }
 
-        .contact-item {
+        .contact-item-new {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            gap: 1rem;
         }
 
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-icon {
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: 15px;
+        .contact-icon-new {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
+            color: var(--white);
         }
 
-        .contact-icon.email { background: var(--gradient-primary); }
-        .contact-icon.phone { background: linear-gradient(135deg, var(--secondary), var(--accent)); }
-        .contact-icon.location { background: linear-gradient(135deg, var(--accent), var(--primary)); }
-
-        .contact-details h4 {
-            font-weight: 700;
+        .contact-icon-new.email { background: var(--gradient-primary); }
+        .contact-icon-new.phone { background: linear-gradient(135deg, var(--secondary), var(--accent)); }
+        .contact-icon-new.location { background: linear-gradient(135deg, var(--accent), var(--primary)); }
+        
+        .contact-details-new h4 {
+            font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
 
-        .contact-details p {
+        .contact-details-new p {
+            font-size: 0.95rem;
             color: var(--text-gray);
-            font-size: 1.05rem;
+            margin: 0;
+            line-height: 1.4;
         }
-
-        .contact-form {
-            background: rgba(249, 250, 251, 0.8);
-            backdrop-filter: blur(20px);
+        
+        .contact-form-new {
             padding: 3rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: var(--shadow);
         }
 
-        .contact-form h3 {
+        .contact-form-new h3 {
             font-size: 1.8rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 2rem;
         }
+        
+        .contact-form-new .form-group input,
+        .contact-form-new .form-group textarea {
+            background: var(--bg-light); /* Latar belakang input abu-abu */
+            border: 2px solid var(--bg-light);
+        }
+
+        .contact-form-new .form-group input:focus,
+        .contact-form-new .form-group textarea:focus {
+            background: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(70, 130, 169, 0.1);
+            transform: none; /* Hilangkan transform agar lebih stabil */
+        }
+        
+        .btn-full-width {
+            width: 100%;
+        }   
 
         .form-group {
             margin-bottom: 1.5rem;
@@ -1146,6 +1069,13 @@
             font-size: 1rem;
         }
 
+        /* MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            .disorders-grid-new {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-desktop { display: none; }
             .mobile-menu-btn { display: block; }
@@ -1155,7 +1085,9 @@
             .hero-buttons { flex-direction: column; gap: 1rem; }
             .hero-stats { grid-template-columns: 1fr; gap: 1rem; }
             .about-content, .contact-content { grid-template-columns: 1fr; gap: 2rem; }
-            .disorders-grid { grid-template-columns: 1fr; }
+            .disorders-grid-new {
+                grid-template-columns: 1fr;
+            }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .section-title { font-size: 2.2rem; }
         }
@@ -1173,15 +1105,18 @@
         html { scroll-behavior: smooth; }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in-up { animation: fadeInUp 0.6s ease-out; }
+        .fade-in-up { 
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both; 
+        }
     </style>
         @php
             $user = Auth::user();
-            $imageUrl = $user->image ? asset('storage/' . $user->image) : 'https://placehold.co/32x32/E2E8F0/A0AEC0?text=P';
+            $imageUrl = $user->image ? asset('storage/' . $user->image) : 'https://placehold.co/36x36/E2E8F0/A0AEC0?text=P';
         @endphp
 </head>
 <body>
@@ -1199,12 +1134,10 @@
                 <a href="/chat" class="nav-link">Chat</a>
             </nav>
 
-            <!-- Foto profil -->
+            <!-- Foto profil (Struktur disederhanakan) -->
             <div class="profile-button">
-                <a href="{{ route('profile') }}" class="flex items-center focus:outline-none rounded-full transition-all duration-200 ease-in-out hover:shadow-md">
-                    <button @click="open = !open" class="flex items-center focus:outline-none rounded-full transition-all duration-200 ease-in-out hover:shadow-md">
-                        <img class="w-8 h-8 rounded-full" src="{{ $imageUrl }}" alt="Foto Profil">
-                    </button>
+                <a href="{{ route('profile') }}" class="profile-link">
+                    <img class="profile-img" src="{{ $imageUrl }}" alt="Foto Profil">
                 </a>
             </div>
 
@@ -1214,10 +1147,11 @@
             </button>
         </div>
         
+        <!-- Mobile Nav disamakan dengan Desktop Nav -->
         <nav class="nav-mobile" id="mobileNav">
-            <a href="#home" class="nav-link-mobile">Dashboard</a>
-            <a href="#resources" class="nav-link-mobile">Articles</a>
-            <a href="#about" class="nav-link-mobile">About</a>
+            <a href="/dashboard" class="nav-link-mobile">Dashboard</a>
+            <a href="/posts" class="nav-link-mobile">Articles</a>
+            <a href="/chat" class="nav-link-mobile">Chat</a>
         </nav>
     </div>
 </header>
@@ -1233,7 +1167,7 @@
                     
                     <div class="hero-buttons">
                         <a href="#resources" class="btn btn-primary">Jelajahi Sumber Daya</a>
-                        <a href="#about" class="btn btn-outline">Pelajari Lebih Lanjut</a>
+                        <a href="#about" class="btn btn-primary">Pelajari Lebih Lanjut</a>
                     </div>
                     
                     <div class="hero-stats">
@@ -1364,132 +1298,66 @@
                 <div class="section-divider"></div>
             </div>
             
-            <div class="disorders-grid">
-                <div class="disorder-card depression">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">😔</div>
-                        <div class="disorder-prevalence">264 juta orang di dunia</div>
+            <div class="disorders-grid-new">
+                <!-- Card 1: Depresi -->
+                <a href="{{ route('jenis.depresi') }}" class="disorder-card-new depression">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">😔</div>
                     </div>
                     <h3>Depresi</h3>
-                    <p>Gangguan mood yang menyebabkan perasaan sedih berkepanjangan dan kehilangan minat pada aktivitas sehari-hari.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Perasaan sedih terus-menerus</li>
-                            <li>Kehilangan energi</li>
-                            <li>Gangguan tidur</li>
-                            <li>Perubahan nafsu makan</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.depresi') }}">
-                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <p>Perasaan sedih mendalam dan kehilangan minat yang mengganggu fungsi sehari-hari.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
                 
-                <div class="disorder-card anxiety">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">😰</div>
-                        <div class="disorder-prevalence">301 juta orang di dunia</div>
+                <!-- Card 2: Kecemasan -->
+                <a href="{{ route('jenis.anxiety') }}" class="disorder-card-new anxiety">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">😰</div>
                     </div>
-                    <h3>Kecemasan (Anxiety)</h3>
-                    <p>Perasaan khawatir, takut, atau gelisah yang berlebihan dan mengganggu aktivitas sehari-hari.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Kekhawatiran berlebihan</li>
-                            <li>Jantung berdebar</li>
-                            <li>Berkeringat</li>
-                            <li>Sulit berkonsentrasi</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.anxiety') }}">
-                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <h3>Kecemasan</h3>
+                    <p>Rasa khawatir, takut, atau gelisah berlebihan yang sulit dikendalikan.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
                 
-                <div class="disorder-card bipolar">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">🎭</div>
-                        <div class="disorder-prevalence">45 juta orang di dunia</div>
+                <!-- Card 3: Bipolar -->
+                <a href="{{ route('jenis.bipolar') }}" class="disorder-card-new bipolar">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">🎭</div>
                     </div>
                     <h3>Gangguan Bipolar</h3>
-                    <p>Gangguan mood yang ditandai dengan perubahan ekstrem antara episode mania dan depresi.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Perubahan mood ekstrem</li>
-                            <li>Episode mania</li>
-                            <li>Episode depresi</li>
-                            <li>Gangguan tidur</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.bipolar') }}">
-                           <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <p>Perubahan mood ekstrem antara episode mania (energi tinggi) dan depresi.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
                 
-                <div class="disorder-card ptsd">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">⚡</div>
-                        <div class="disorder-prevalence">70 juta orang di dunia</div>
+                <!-- Card 4: PTSD -->
+                <a href="{{ route('jenis.ptsd') }}" class="disorder-card-new ptsd">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">⚡</div>
                     </div>
                     <h3>PTSD</h3>
-                    <p>Gangguan yang terjadi setelah mengalami atau menyaksikan peristiwa traumatis.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Flashback</li>
-                            <li>Mimpi buruk</li>
-                            <li>Menghindari pemicu</li>
-                            <li>Hypervigilance</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.ptsd') }}">
-                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <p>Gangguan yang berkembang setelah mengalami atau menyaksikan peristiwa traumatis.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
                 
-                <div class="disorder-card ocd">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">🔄</div>
-                        <div class="disorder-prevalence">76 juta orang di dunia</div>
+                <!-- Card 5: OCD -->
+                <a href="{{ route('jenis.ocd') }}" class="disorder-card-new ocd">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">🔄</div>
                     </div>
                     <h3>OCD</h3>
-                    <p>Gangguan yang ditandai dengan pikiran obsesif dan perilaku kompulsif yang berulang.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Pikiran obsesif</li>
-                            <li>Perilaku berulang</li>
-                            <li>Kecemasan tinggi</li>
-                            <li>Gangguan fungsi sehari-hari</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.ocd') }}">
-                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <p>Pikiran obsesif dan perilaku kompulsif yang dilakukan berulang kali.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
                 
-                <div class="disorder-card eating">
-                    <div class="disorder-header">
-                        <div class="disorder-icon">🍽️</div>
-                        <div class="disorder-prevalence">16 juta orang di dunia</div>
+                <!-- Card 6: Gangguan Makan -->
+                <a href="{{ route('jenis.gangguan') }}" class="disorder-card-new eating">
+                    <div class="disorder-icon-wrapper">
+                        <div class="disorder-icon-new">🍽️</div>
                     </div>
                     <h3>Gangguan Makan</h3>
-                    <p>Gangguan yang melibatkan pola makan yang tidak sehat dan obsesi terhadap berat badan.</p>
-                    <div class="symptoms">
-                        <h4>⚠️ Gejala Umum:</h4>
-                        <ul>
-                            <li>Pola makan tidak teratur</li>
-                            <li>Obsesi berat badan</li>
-                            <li>Distorsi citra tubuh</li>
-                            <li>Isolasi sosial</li>
-                        </ul>
-                    </div>
-                    <a href="{{ route('jenis.gangguan') }}">
-                        <button class="disorder-btn">Pelajari Lebih Lanjut</button>
-                    </a>
-                </div>
+                    <p>Pola makan tidak sehat dan obsesi berlebih terhadap berat dan citra tubuh.</p>
+                    <span class="disorder-link">Pelajari Lebih Lanjut →</span>
+                </a>
             </div>
             
             <div class="statistics">
@@ -1520,8 +1388,7 @@
             <div class="important-note">
                 <div class="note-icon">⚠️</div>
                 <h3>Penting untuk Diingat</h3>
-                <p>Jika Anda mengalami gejala-gejala di atas secara berkelanjutan dan mengganggu aktivitas sehari-hari, sangat disarankan untuk berkonsultasi dengan profesional kesehatan mental.</p>
-                <p>Diagnosis yang tepat hanya dapat dilakukan oleh tenaga profesional yang qualified.</p>
+                <p>Informasi ini bersifat edukatif dan bukan pengganti diagnosis medis. Jika Anda merasa mengalami gejala, sangat disarankan untuk berkonsultasi dengan profesional kesehatan mental.</p>
             </div>
         </div>
     </section>
@@ -1544,7 +1411,7 @@
                     <div class="resource-icon tips">💡</div>
                     <h3>Konsultasi</h3>
                     <p>Strategi praktis untuk menjaga dan meningkatkan kesehatan mental sehari-hari</p>
-                    <a href="#" class="resource-link">Jelajahi 📈</a>
+                    <a href="/chat" class="resource-link">Mulai Chat 💬</a>
                 </div>
             </div>
         </div>
@@ -1554,57 +1421,56 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Hubungi Kami</h2>
-                <p class="section-subtitle">Ada pertanyaan tentang kesehatan mental? Kami siap membantu dengan informasi yang Anda butuhkan</p>
+                <p class="section-subtitle">Punya pertanyaan atau butuh dukungan? Kami di sini untuk Anda.</p>
             </div>
             
-            <div class="contact-content">
-                <div class="contact-info">
+            <div class="contact-card-new">
+                <!-- Kolom Informasi Kontak -->
+                <div class="contact-info-new">
                     <h3>Informasi Kontak</h3>
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-icon email">📧</div>
-                            <div class="contact-details">
+                    <p>Kami siap mendengarkan. Hubungi kami melalui salah satu cara di bawah ini.</p>
+                    <div class="contact-items-new">
+                        <div class="contact-item-new">
+                            <div class="contact-icon-new email">📧</div>
+                            <div class="contact-details-new">
                                 <h4>Email</h4>
                                 <p>info@senandika.com</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon phone">📞</div>
-                            <div class="contact-details">
+                        <div class="contact-item-new">
+                            <div class="contact-icon-new phone">📞</div>
+                            <div class="contact-details-new">
                                 <h4>Telepon</h4>
                                 <p>+62 21 1234 5678</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon location">📍</div>
-                            <div class="contact-details">
+                        <div class="contact-item-new">
+                            <div class="contact-icon-new location">📍</div>
+                            <div class="contact-details-new">
                                 <h4>Alamat</h4>
-                                <p>Jl. Edukasi Kesehatan Mental No. 123<br>Jakarta Selatan, 12345</p>
+                                <p>Jl. Edukasi No. 123, Jakarta</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Kirim Pesan</h3>
+                <!-- Kolom Formulir -->
+                <div class="contact-form-new">
+                    <h3>Kirim Pesan Langsung</h3>
                     <form>
                         <div class="form-group">
                             <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+                            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subjek</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subjek pesan" required>
+                            <label for="message">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                            <button type="submit" class="btn btn-primary btn-full-width">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -1638,94 +1504,35 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+            // Fungsi untuk smooth scrolling pada link anchor (misal: tombol di hero)
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
             
-            navLinks.forEach(link => {
+            anchorLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
                     const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
                     
-                    if (targetId && targetId.startsWith('#')) {
-                        e.preventDefault();
-                        
-                        const desktopLinks = document.querySelectorAll('.nav-link');
-                        desktopLinks.forEach(l => l.classList.remove('active'));
-                        
-                        const correspondingDesktopLink = document.querySelector(`.nav-link[href="${targetId}"]`);
-                        if (correspondingDesktopLink) {
-                            correspondingDesktopLink.classList.add('active');
-                        }
-                        
-                        const targetSection = document.querySelector(targetId);
-                        if (targetSection) {
-                            targetSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                        
-                        const mobileNav = document.getElementById('mobileNav');
-                        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-                        if (mobileNav.classList.contains('active')) {
-                            mobileNav.classList.remove('active');
-                            mobileMenuBtn.classList.remove('active');
-                        }
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Menutup menu mobile setelah link diklik
+                    const mobileNav = document.getElementById('mobileNav');
+                    if (mobileNav.classList.contains('active')) {
+                        toggleMobileMenu();
                     }
                 });
             });
             
-            const sections = document.querySelectorAll('section[id]');
-            const observerOptions = {
-                rootMargin: '-50px 0px -50px 0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        const correspondingNavLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                        
-                        if (correspondingNavLink) {
-                            const allNavLinks = document.querySelectorAll('.nav-link');
-                            allNavLinks.forEach(link => link.classList.remove('active'));
-                            correspondingNavLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-            
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.sign-card, .disorder-card, .resource-card, .aspect-card');
-                
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('fade-in-up');
-                    }
-                });
-            };
-            
-            let ticking = false;
-            const throttledAnimateOnScroll = () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        animateOnScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            };
-            
-            window.addEventListener('scroll', throttledAnimateOnScroll);
-            animateOnScroll();
-            
-            const contactForm = document.querySelector('.contact-form form');
+            // FUNGSI ANIMASI SAAT SCROLL TELAH DIHAPUS.
+
+            // Memperbaiki selector formulir kontak agar sesuai dengan desain baru
+            const contactForm = document.querySelector('.contact-form-new form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -1733,17 +1540,9 @@
                     const formData = new FormData(this);
                     const name = formData.get('name');
                     const email = formData.get('email');
-                    const subject = formData.get('subject');
-                    const message = formData.get('message');
                     
-                    if (!name || !email || !subject || !message) {
-                        alert('Mohon lengkapi semua field yang diperlukan.');
-                        return;
-                    }
-                    
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(email)) {
-                        alert('Format email tidak valid.');
+                    if (!name || !email) {
+                        alert('Mohon lengkapi nama dan email.');
                         return;
                     }
                     
@@ -1753,50 +1552,15 @@
                     submitBtn.textContent = 'Mengirim...';
                     submitBtn.disabled = true;
                     
+                    // Simulasi pengiriman form
                     setTimeout(() => {
                         alert('Pesan Anda telah berhasil dikirim! Kami akan segera merespons.');
                         this.reset();
                         submitBtn.textContent = originalText;
                         submitBtn.disabled = false;
-                    }, 2000);
+                    }, 1500);
                 });
             }
-        
-        
-            document.addEventListener('click', function(e) {
-                const mobileNav = document.getElementById('mobileNav');
-                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-                
-                if (mobileNav.classList.contains('active') && 
-                    !mobileNav.contains(e.target) && 
-                    !mobileMenuBtn.contains(e.target)) {
-                    mobileNav.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                }
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    const mobileNav = document.getElementById('mobileNav');
-                    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-                    if (mobileNav.classList.contains('active')) {
-                        mobileNav.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-            
-            const cards = document.querySelectorAll('.sign-card, .disorder-card, .resource-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
         });
     </script>
 </body>

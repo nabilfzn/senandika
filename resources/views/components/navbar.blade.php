@@ -17,15 +17,15 @@
                 handle adding the 'active' class for these links based on scroll position.
             --}}
             <x-nav-link href="/dashboard" :active="request()->is('/')"
-                class="text-gray-900 font-medium px-4 py-2 rounded-md transition-all duration-200 ease-in-out hover:text-blue-700 hover:bg-blue-100">
+                class="text-gray-900 font-medium px-4 py-2 rounded-md">
                 Dashboard
             </x-nav-link>
             <x-nav-link href="/posts" :active="request()->is('posts')"
-                class="text-gray-900 font-medium px-4 py-2 rounded-md transition-all duration-200 ease-in-out hover:text-blue-700 hover:bg-blue-100">
+                class="text-gray-900 font-medium px-4 py-2 rounded-md">
                 Articles
             </x-nav-link>
             <x-nav-link href="/chat" :active="request()->is('chat')"
-                class="text-gray-900 font-medium px-4 py-2 rounded-md transition-all duration-200 ease-in-out hover:text-blue-700 hover:bg-blue-100">
+                class="text-gray-900 font-medium px-4 py-2 rounded-md">
                 Chat
             </x-nav-link>
         </nav>
