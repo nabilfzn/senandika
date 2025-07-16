@@ -46,7 +46,7 @@
                     <div id="ai-features" class="space-y-4 rounded-2xl bg-white p-6 shadow-lg border border-gray-200">
                         <!-- Sidebar -->
                         <div class="text-center">
-                            <h2 class="text-2xl font-bold text-gray-800">Tulisin <span class="text-indigo-600">AI</span></h2>
+                            <h2 class="text-2xl font-bold text-gray-800">Senandika <span class="text-indigo-600"></span></h2>
                             <p class="mt-1 text-sm text-gray-500">Ajukan pertanyaan tentang artikel ini.</p>
                         </div>
                         
