@@ -9,9 +9,6 @@
 </head>
 <body>
   <!-- Tombol Login -->
-  <div class="login-link">
-    <a href="login.html">Login</a>
-  </div>
 
   <div class="container">
     <!-- Header -->
@@ -26,13 +23,13 @@
       <h2 class="question">Mau kemana?</h2>
       <div class="options-container">
         <a href="{{ route('dashboard') }}" class="option-card">
-          <img src="logo-edukasi.png" alt="Edukasi" class="icon" />
+          <img src="{{asset('storage/edukasi.jpg')}}" alt="Edukasi" class="icon" />
           <h3 class="card-title">EDUKASI</h3>
           <p class="card-desc">Untuk Blog, Tes Psikologi, Karir, Kerja Sama</p>
         </a>
 
         <a href="{{ route('chat') }}" class="option-card">
-          <img src="logo-konsultasi.png" alt="Konsultasi" class="icon" />
+          <img src="{{asset('storage/konsultasi.png')}}" Konsultasi" class="icon" />
           <h3 class="card-title">KONSULTASI</h3>
           <p class="card-desc">Untuk Life Coaching dan Konseling</p>
         </a>
@@ -159,8 +156,8 @@ body {
 }
 
 .icon {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   margin-bottom: 1rem;
 }
 

@@ -87,7 +87,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Team Member 1 -->
                 <div class="team-card bg-white rounded-xl p-8 flex flex-col items-center text-center">
-                    <img class="h-24 w-24 rounded-full object-cover mb-4" src="{{asset('storage/nabil.jpg')}}" alt="Foto Ahmad Nabil Fauzan Abdillah">
+                    <img class="h-24 w-24 rounded-full object-cover mb-4" src="{{asset('storage/edukasi.jpg')}}" alt="Foto Ahmad Nabil Fauzan Abdillah">
                     <h3 class="text-xl font-bold text-gray-900">Ahmad Nabil Fauzan Abdillah</h3>
                     <p class="font-semibold gradient-text mb-3">Developer</p>
                     <p class="text-gray-600">Pelajar Kelas 11 jurusan Sistem Informasi Jaringan & Aplikasi (SIJA) di SMK Telkom Sidoarjo, dengan passion pada pengembangan backend dan arsitektur sistem.</p>
