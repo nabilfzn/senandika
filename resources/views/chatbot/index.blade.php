@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Wellness Assistant - MindSpace</title>
+    <title>Senandika</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +34,9 @@
             <!-- Logo/Branding -->
             <div class="flex items-center gap-3 px-4">
                 <div class="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-xl">
-                    M
+                    S
                 </div>
-                <span class="text-xl font-bold text-gray-800">MindSpace</span>
+                <span class="text-xl font-bold text-gray-800">Senandika</span>
             </div>
 
             <!-- Menu Navigasi -->
@@ -49,19 +49,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" /></svg>
                     <span>Back</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-colors">
-                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V5a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 00-1.447.894V15.01a1 1 0 00.553.894l2 .999V7.17l-1.106-.554zM3 5a1 1 0 00-1 1v9a1 1 0 001 1h5a1 1 0 001-1V6a1 1 0 00-1-1H3z" /></svg>
-                    <span>Sumber Daya</span>
-                </a>
             </nav>
-
-             <!-- Profile/Settings -->
-             <div class="mt-auto">
-                 <a href="#" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.982.54 2.295 0 3.277-1.372.836.734 2.942 2.106 2.106a1.532 1.532 0 012.286-.948c.38 1.56 2.6 1.56 2.98 0a1.532 1.532 0 012.286.948c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 010-3.277c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.286-.948zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" /></svg>
-                    <span>Pengaturan</span>
-                </a>
-             </div>
         </aside>
 
         <!-- ===== Main Chat Container - Selalu Terlihat ===== -->
@@ -90,7 +78,7 @@
                     </div>
                     <div class="bg-gray-100 rounded-xl rounded-tl-none p-4 max-w-lg">
                         <p class="text-gray-700 leading-relaxed">
-                            Selamat datang di MindSpace! 🌟 Saya di sini untuk mendengarkan dan membantu Anda. 
+                            Selamat datang di Senandika Chat! 🌟 Saya di sini untuk mendengarkan dan membantu Anda. 
                             Apa yang sedang Anda rasakan atau pikirkan hari ini?
                         </p>
                     </div>
