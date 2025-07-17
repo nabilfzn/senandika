@@ -1257,32 +1257,44 @@
             
             <div class="signs-grid">
                 <div class="sign-card">
-                    <div class="sign-icon heart">❤️</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/emo.png')}}">
+                    </div>
                     <h3>Kesejahteraan Emosional</h3>
                     <p>Mampu mengelola emosi dengan baik dan merasa puas dengan hidup</p>
                 </div>
                 <div class="sign-card">
-                    <div class="sign-icon brain">🧠</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/brain.png')}}">
+                    </div>
                     <h3>Fungsi Kognitif Optimal</h3>
                     <p>Dapat berpikir jernih, berkonsentrasi, dan membuat keputusan dengan baik</p>
                 </div>
                 <div class="sign-card">
-                    <div class="sign-icon social">👥</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/sosial.png')}}">
+                    </div>
                     <h3>Hubungan Sosial Sehat</h3>
                     <p>Mampu membangun dan mempertahankan hubungan yang bermakna</p>
                 </div>
                 <div class="sign-card">
-                    <div class="sign-icon resilience">🛡️</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/resilience.png')}}">
+                    </div>
                     <h3>Resiliensi</h3>
                     <p>Kemampuan untuk bangkit dari kesulitan dan beradaptasi dengan perubahan</p>
                 </div>
                 <div class="sign-card">
-                    <div class="sign-icon productivity">⚡</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/efficiency.png')}}">
+                    </div>
                     <h3>Produktivitas</h3>
                     <p>Mampu berfungsi dengan baik dalam pekerjaan dan aktivitas sehari-hari</p>
                 </div>
                 <div class="sign-card">
-                    <div class="sign-icon acceptance">✅</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/self.png')}}">
+                    </div>
                     <h3>Penerimaan Diri</h3>
                     <p>Memiliki harga diri yang sehat dan menerima kelebihan serta kekurangan diri</p>
                 </div>
@@ -1301,8 +1313,8 @@
             <div class="disorders-grid-new">
                 <!-- Card 1: Depresi -->
                 <a href="{{ route('jenis.depresi') }}" class="disorder-card-new depression">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">😔</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/depression.png')}}">
                     </div>
                     <h3>Depresi</h3>
                     <p>Perasaan sedih mendalam dan kehilangan minat yang mengganggu fungsi sehari-hari.</p>
@@ -1311,8 +1323,8 @@
                 
                 <!-- Card 2: Kecemasan -->
                 <a href="{{ route('jenis.anxiety') }}" class="disorder-card-new anxiety">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">😰</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/anxiety.png')}}">
                     </div>
                     <h3>Kecemasan</h3>
                     <p>Rasa khawatir, takut, atau gelisah berlebihan yang sulit dikendalikan.</p>
@@ -1321,8 +1333,8 @@
                 
                 <!-- Card 3: Bipolar -->
                 <a href="{{ route('jenis.bipolar') }}" class="disorder-card-new bipolar">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">🎭</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/bipolar.png')}}">
                     </div>
                     <h3>Gangguan Bipolar</h3>
                     <p>Perubahan mood ekstrem antara episode mania (energi tinggi) dan depresi.</p>
@@ -1331,8 +1343,8 @@
                 
                 <!-- Card 4: PTSD -->
                 <a href="{{ route('jenis.ptsd') }}" class="disorder-card-new ptsd">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">⚡</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/ptsd.png')}}">
                     </div>
                     <h3>PTSD</h3>
                     <p>Gangguan yang berkembang setelah mengalami atau menyaksikan peristiwa traumatis.</p>
@@ -1341,8 +1353,8 @@
                 
                 <!-- Card 5: OCD -->
                 <a href="{{ route('jenis.ocd') }}" class="disorder-card-new ocd">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">🔄</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/personality.png')}}">
                     </div>
                     <h3>OCD</h3>
                     <p>Pikiran obsesif dan perilaku kompulsif yang dilakukan berulang kali.</p>
@@ -1351,8 +1363,8 @@
                 
                 <!-- Card 6: Gangguan Makan -->
                 <a href="{{ route('jenis.gangguan') }}" class="disorder-card-new eating">
-                    <div class="disorder-icon-wrapper">
-                        <div class="disorder-icon-new">🍽️</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/eating.png')}}">
                     </div>
                     <h3>Gangguan Makan</h3>
                     <p>Pola makan tidak sehat dan obsesi berlebih terhadap berat dan citra tubuh.</p>
@@ -1402,13 +1414,17 @@
             
             <div class="resources-grid">
                 <div class="resource-card">
-                    <div class="resource-icon articles">📚</div>
-                    <h3>Artikel & Panduan</h3>
-                    <p>Kumpulan artikel edukatif tentang kesehatan mental yang ditulis oleh para ahli</p>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/newspaper.png')}}">
+                    </div>
+                    <h3>Artikel Motivasi</h3>
+                    <p>Kumpulan artikel edukatif tentang kesehatan mental yang memotivasi</p>
                     <a href="/posts" class="resource-link">Jelajahi 📈</a>
                 </div>
                 <div class="resource-card">
-                    <div class="resource-icon tips">💡</div>
+                    <div class="flex justify-center">
+                    <img class="h-24 w-24 object-cover mb-4" src="{{asset('storage/doctor.png')}}">
+                    </div>
                     <h3>Konsultasi</h3>
                     <p>Strategi praktis untuk menjaga dan meningkatkan kesehatan mental sehari-hari</p>
                     <a href="/chat" class="resource-link">Mulai Chat 💬</a>

@@ -56,32 +56,20 @@
         }
 
         /* Image Placeholder */
-        .image-placeholder {
-            width: 100%;
-            height: 250px; /* Slightly taller for article image */
-            background: #e5e7eb; /* Light gray */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+       .image-placeholder {
+    width: 100%;
+    height: 250px;
+    background: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+}
 
-        .image-icon {
-            width: 80px; /* Larger icon */
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-icon svg {
-            width: 32px; /* Larger SVG */
-            height: 32px;
-            color: #9ca3af; /* Medium gray */
-        }
+.image-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
         /* Article Content */
         .article-content {
@@ -200,7 +188,7 @@
 
         <!-- Image Placeholder -->
         <div class="image-placeholder">
-            <img src="" alt="">
+            <img src="{{asset('storage/depresi.jpeg')}}"/>
         </div>
 
         <!-- Article Content -->
