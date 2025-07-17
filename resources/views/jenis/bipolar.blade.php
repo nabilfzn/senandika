@@ -118,6 +118,21 @@
             .article-subsection-title { font-size: 1.1rem; }
             .summary-section { padding: 1rem; }
         }
+        .image-placeholder {
+    width: 100%;
+    height: 250px;
+    background: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
     </style>
 </head>
 <body>
@@ -130,7 +145,9 @@
             Kembali ke Dashboard
         </a>
     </header>
-    <div class="image-placeholder"></div>
+    <div class="image-placeholder">
+         <img src="{{asset('storage/bipolar.jpeg')}}"/>
+    </div>
     <div class="article-content">
         <div class="summary-section">
             <h2 class="summary-title">Ringkasan</h2>

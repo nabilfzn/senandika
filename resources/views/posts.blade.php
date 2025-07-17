@@ -47,16 +47,14 @@
         }
 
         /* Enhanced Header Styles */
-        .header {
+           .header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .nav-wrapper {
@@ -64,133 +62,65 @@
             align-items: center;
             justify-content: space-between;
             padding: 1rem 0;
-            position: relative;
+        }
+        .profile-button {
+            margin-left: 1rem;
+        }
+        
+        .profile-link {
+            display: block;
+            margin-right: 160px;
+            border-radius: 50%;
+            transition: box-shadow 0.2s ease;
+        }
+        .profile-link:hover {
+            box-shadow: 0 0 0 3px rgba(70, 130, 169, 0.2);
+        }
+
+        .profile-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
         }
 
         .logo {
             display: flex;
-            margin-left: 150px;
+            margin-left: 160px;
             align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
+            gap: 0.5rem;
         }
 
         .logo-icon {
-            font-size: 2rem;
-            filter: drop-shadow(0 4px 8px rgba(70, 130, 169, 0.3));
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(10deg) scale(1.1);
+            font-size: 1.8rem;
         }
 
         .logo-text {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .nav-desktop {
             display: flex;
-            gap: 2.5rem;
-            align-items: center;
+            gap: 2rem;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-bg);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            left: 0;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(70, 130, 169, 0.2);
-        }
-
-        .profile-section {
-            display: flex;
-            margin-right: 150px;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .profile-button {
-            position: relative;
-        }
-
-        .profile-btn {
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 0;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-btn::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .profile-btn:hover::before {
-            opacity: 1;
-        }
-
-        .profile-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .profile-btn:hover .profile-img {
-            transform: scale(1.05);
-            border-color: white;
+            background: rgba(70, 130, 169, 0.1);
         }
 
         .mobile-menu-btn {
@@ -198,24 +128,17 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0.75rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn:hover {
-            background: rgba(70, 130, 169, 0.1);
+            padding: 0.5rem;
         }
 
         .hamburger,
         .hamburger::before,
         .hamburger::after {
             display: block;
-            width: 22px;
+            width: 20px;
             height: 2px;
             background: var(--text-dark);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 1px;
+            transition: all 0.2s ease;
         }
 
         .hamburger {
@@ -228,36 +151,36 @@
             position: absolute;
         }
 
-        .hamburger::before { top: -7px; }
-        .hamburger::after { top: 7px; }
+        .hamburger::before { top: -6px; }
+        .hamburger::after { top: 6px; }
 
-        .mobile-menu-btn.active .hamburger { 
-            background: transparent; 
-        }
-
-        .mobile-menu-btn.active .hamburger::before { 
-            transform: rotate(45deg); 
-            top: 0; 
-        }
-
-        .mobile-menu-btn.active .hamburger::after { 
-            transform: rotate(-45deg); 
-            top: 0; 
-        }
+        .mobile-menu-btn.active .hamburger { background: transparent; }
+        .mobile-menu-btn.active .hamburger::before { transform: rotate(45deg); top: 0; }
+        .mobile-menu-btn.active .hamburger::after { transform: rotate(-45deg); top: 0; }
 
         .nav-mobile {
             display: none;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(229, 231, 235, 0.8);
-            padding: 1.5rem 0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 1rem 0;
         }
 
         .nav-mobile.active {
             display: flex;
-            animation: slideDown 0.3s ease-out;
+        }
+
+        .nav-link-mobile {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link-mobile:hover {
+            color: var(--primary);
+            background: rgba(70, 130, 169, 0.1);
         }
 
         @keyframes slideDown {
@@ -416,49 +339,47 @@
             }
         }
     </style>
+
+
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
     <!-- Enhanced Header -->
     <header class="header">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="/dashboard" class="logo">
-                    <div class="logo-icon">🧠</div>
-                    <span class="logo-text">Senandika</span>
-                </a>
-                
-                <nav class="nav-desktop">
-                    <a href="/dashboard" class="nav-link">Dashboard</a>
-                    <a href="/posts" class="nav-link active">Articles</a>
-                    <a href="/chat" class="nav-link">Chat</a>
-                </nav>
-
-                <div class="profile-section">
-                    <!-- Profile Button -->
-                   <div class="profile-button">
-                    <a href="{{ route('profile') }}" class="flex items-center focus:outline-none rounded-full transition-all duration-200 ease-in-out hover:shadow-md">
-                        <button @click="open = !open" class="flex items-center focus:outline-none rounded-full transition-all duration-200 ease-in-out hover:shadow-md">
-                             <img class="w-8 h-8 rounded-full" src="{{ $imageUrl }}" alt="Foto Profil">
-                        </button>
-                    </a>
-                 </div>
-
-                    <!-- Mobile Menu Button -->
-                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                        <span class="hamburger"></span>
-                    </button>
-                </div>
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-icon">🧠</div>
+                <span class="logo-text">Senandika</span>
             </div>
             
-            <!-- Mobile Navigation -->
-            <nav class="nav-mobile" id="mobileNav">
-                <a href="/dashboard" class="nav-link-mobile">Dashboard</a>
-                <a href="/posts" class="nav-link-mobile">Articles</a>
-                <a href="/chat" class="nav-link-mobile">About</a>
+            <nav class="nav-desktop">
+                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/posts" class="nav-link active">Articles</a>
+                <a href="/chat" class="nav-link">Chat</a>
             </nav>
+
+            <!-- Foto profil (Struktur disederhanakan) -->
+            <div class="profile-button">
+                <a href="{{ route('profile') }}" class="profile-link">
+                    <img class="profile-img" src="{{ $imageUrl }}" alt="Foto Profil">
+                </a>
+            </div>
+
+            <!-- Tombol mobile menu -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span class="hamburger"></span>
+            </button>
         </div>
-    </header>
+        
+        <!-- Mobile Nav disamakan dengan Desktop Nav -->
+        <nav class="nav-mobile" id="mobileNav">
+            <a href="/dashboard" class="nav-link-mobile">Dashboard</a>
+            <a href="/posts" class="nav-link-mobile">Articles</a>
+            <a href="/chat" class="nav-link-mobile">Chat</a>
+        </nav>
+    </div>
+</header>
 
     <!-- Content Wrapper -->
     <div class="content-wrapper">

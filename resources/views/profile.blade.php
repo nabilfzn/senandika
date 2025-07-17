@@ -1,9 +1,58 @@
-<x-layout>
-    
+<!DOCTYPE html >
+<html lang="en" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    @vite('resources/css/app.css')
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    @stack('head')
+
+
+    <title>Home</title>
+    <style>
+        .article-header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4682A9; /* Senandika Blue */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-button:hover {
+            color: #749BC2; /* Lighter Senandika Blue */
+        }
+
+        .back-button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    </style>
+</head>
+<body class="h-full">
     <div class="bg-gray-50 min-h-screen">
 
     
         @auth
+
+        <header class="article-header">
+            <a href="{{ route('dashboard') }}" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Kembali ke Dashboard
+            </a>
+        </header>
+
         <main class="container mx-auto max-w-5xl px-4 py-10">
             <div class="mb-8 overflow-hidden rounded-2xl bg-white shadow-md">
                 <div class="p-8">
@@ -145,4 +194,6 @@
         </main>
         @endauth
     </div>
-</x-layout>
+</body>
+</html>
+
