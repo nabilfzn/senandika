@@ -4,126 +4,108 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 use Exception;
+use Illuminate\Support\Facades\Log; // Import Log facade
 
 class GeminiService
 {
     /**
-     * Mengirim pesan ke Gemini API dan mendapatkan balasan dalam konteks percakapan.
+     * Core function to make calls to the Gemini API.
+     * Receives an array of 'contents' (including history and system prompt if any).
      *
-     * @param string $userMessage Pesan terbaru dari pengguna.
-     * @param array $chatHistory Array riwayat percakapan sebelumnya.
-     * Format: [['role' => 'user/model', 'parts' => [['text' => '...']]], ...]
-     * @return string Balasan dari Gemini.
+     * @param array $contents Array containing messages to send to Gemini (role, parts).
+     * @param array $generationConfig Generation configuration (temperature, maxOutputTokens, etc.).
+     * @return string Response from Gemini or an error message.
      */
-    public function generateChatResponse(string $userMessage, array $chatHistory = []): string
+    protected function callGeminiApi(array $contents, array $generationConfig = []): string
     {
         try {
             $apiKey = env('GEMINI_API_KEY');
-            if (empty($apiKey)) {
-                // Log warning dan throw exception jika API key tidak ada
-                \Log::warning('GEMINI_API_KEY is not set in .env file.');
-                throw new Exception("GEMINI_API_KEY is not configured.");
-            }
-
+            // Using gemini-2.0-flash as requested.
+            // For more advanced multi-turn conversations, 'gemini-pro' or 'gemini-1.5-pro'
+            // might offer better context handling and reasoning.
             $url = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=' . $apiKey;
 
-
-            $contents = [];
-
-            // Bangun riwayat percakapan dari $chatHistory
-            foreach ($chatHistory as $item) {
-                // Pastikan setiap item memiliki 'role' dan 'parts' untuk API Gemini
-                if (isset($item['role']) && isset($item['parts'])) {
-                    $contents[] = [
-                        'role' => $item['role'],
-                        'parts' => $item['parts']
-                    ];
-                }
-            }
-
-            // Tambahkan pesan pengguna saat ini ke 'contents'
-            // Penting: Selalu sertakan 'role: user' untuk input pengguna
-            $contents[] = [
-                'role' => 'user',
-                'parts' => [['text' => $userMessage]]
+            $payload = [
+                'contents' => $contents,
+                'generationConfig' => array_merge([
+                    'temperature' => 1.0, // Default temperature if not provided
+                    'maxOutputTokens' => 10000, // Default max output tokens
+                ], $generationConfig),
             ];
 
-            // Kirim request ke Gemini API
-            $response = Http::timeout(60)->post($url, [ // Timeout diperpanjang
-                'contents' => $contents,
-                'generationConfig' => [
-                    'temperature' => 0.7, // Nilai yang baik untuk percakapan
-                    'maxOutputTokens' => 1024, // Batas output yang masuk akal
-                    'topP' => 0.95,
-                    'topK' => 40,
-                ],
-                // Anda bisa menambahkan 'safetySettings' di sini jika diperlukan
-                // 'safetySettings' => [
-                //     ['category' => 'HARM_CATEGORY_HATE_SPEECH', 'threshold' => 'BLOCK_NONE'],
-                // ]
-            ]);
+            $response = Http::post($url, $payload);
 
-            // Cek jika request berhasil
             if ($response->successful()) {
-                // Ambil teks dari balasan Gemini
-                // Gunakan null coalescing operator untuk fallback jika path tidak ada
-                return $response->json('candidates.0.content.parts.0.text') ?? 'Maaf, saya tidak bisa menghasilkan balasan.';
+                // Ensure the JSON structure matches the Gemini API response
+                return $response->json('candidates.0.content.parts.0.text') ?? 'Jawaban kosong.';
             }
 
-            // Jika request gagal, log detail error
-            \Log::error('Gemini API Error (HTTP Status: ' . $response->status() . '): ' . $response->body());
-
-            // Coba parse error message dari Gemini jika ada
-            $errorJson = $response->json();
-            $errorMessage = $errorJson['error']['message'] ?? 'Tidak ada detail error dari Gemini.';
-            return 'Gagal terhubung ke AI. Status: ' . $response->status() . '. Detail: ' . $errorMessage;
+            // Detailed error logging for debugging
+            Log::error('Gemini API Error: ' . $response->status() . ' - ' . $response->body(), [
+                'request_payload' => $payload,
+                'response_body' => $response->body(),
+            ]);
+            return 'Gagal hubungi Gemini. Status: ' . $response->status();
 
         } catch (Exception $e) {
-            // Log semua exception yang tidak tertangkap
-            \Log::error('Gemini Service Exception: ' . $e->getMessage() . ' at ' . $e->getFile() . ':' . $e->getLine());
-            return 'Terjadi kesalahan sistem: ' . $e->getMessage();
+            Log::error('Gemini Service Exception: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+            ]);
+            return 'Kesalahan: ' . $e->getMessage();
         }
     }
+
+    /**
+     * Generates content from a single prompt.
+     * This function is not used by the mental health chatbot.
+     *
+     * @param string $prompt User message.
+     * @return string Response from Gemini.
+     */
+    public function generateContent(string $prompt): string
+    {
+        $contents = [[
+            'parts' => [['text' => $prompt]]
+        ]];
+        $generationConfig = [
+            'temperature' => 2.0, // Higher temperature for more creativity
+            'maxOutputTokens' => 2000,
+        ];
+
+        return $this->callGeminiApi($contents, $generationConfig);
+    }
+
+    /**
+     * Generates a response for the mental health chatbot.
+     * This function explicitly inserts the system prompt and combines it
+     * with the chat history and the current user message.
+     *
+     * @param string $userMessage The current user message.
+     * @param array $chatHistory Previous conversation history in Gemini API format (role, parts).
+     * @return string Response from Gemini.
+     */
+    public function generateMentalHealthResponse(string $userMessage, array $chatHistory = []): string
+    {
+        // Explicitly insert the system prompt here.
+        // This ensures the system prompt is always consistent and applied.
+        $systemPrompt = [
+            'role' => 'user', // 'user' role is commonly used for system instructions in Gemini API
+            'parts' => [[
+                'text' => "kamu berperan seperti seorang psikiater dengan jawaban yang santai dan memahami perasaan lawan bicara, hindari diagnosa medis dan jika masalahnya serius sarankan untuk ke psikolog asli, jangan jawab pertanyaan selain pertanyaan tentang kesehatan mental"
+            ]]
+        ];
+
+        // Combine the system prompt, existing chat history, and the current user message
+        // The system prompt is added first to ensure it sets the context from the beginning.
+        $allContents = array_merge([$systemPrompt], $chatHistory, [
+            ['role' => 'user', 'parts' => [['text' => $userMessage]]]
+        ]);
+
+        $generationConfig = [
+            'temperature' => 0.7, // Lower temperature for consistency and empathy in a chatbot
+            'maxOutputTokens' => 250,
+        ];
+
+        return $this->callGeminiApi($allContents, $generationConfig);
+    }
 }
-
-
-
-
-
-
-// <?php
-
-// namespace App\Services;
-
-// use Illuminate\Support\Facades\Http;
-// use Exception; 
-
-// class GeminiService
-// {
-//     public function generateContent(string $prompt)
-//     {
-//         try {
-//             $apiKey = env('GEMINI_API_KEY');
-//             $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $apiKey;
-
-//             $response = Http::post($url, [
-//                 'contents' => [[
-//                     'parts' => [['text' => $prompt]]
-//                 ]],
-//                 'generationConfig' => [
-//                     'temperature' => 2.0,
-//                     'maxOutputTokens' => 10000,
-//                 ],
-//             ]);
-
-//             if ($response->successful()) {
-//                 return $response->json('candidates.0.content.parts.0.text') ?? 'Jawaban kosong.';
-//             }
-
-//             return 'Gagal hubungi Gemini. Status: ' . $response->status();
-
-//         } catch (\Exception $e) {
-//             return 'Kesalahan: ' . $e->getMessage();
-//         }
-//     }
-// }
