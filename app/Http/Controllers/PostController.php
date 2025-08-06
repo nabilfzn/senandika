@@ -20,7 +20,7 @@ class PostController extends Controller
         });
     }
 
-    $posts = $query->latest()->paginate(9)->withQueryString(); // paginasi tetap support query
+    $posts = $query->latest()->paginate(50)->withQueryString(); // paginasi tetap support query
     return view('posts', compact('posts'));
 }
 
